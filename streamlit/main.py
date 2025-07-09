@@ -32,10 +32,12 @@ df = pd.read_csv(io.StringIO(response.text))
 if selected == "Beranda":
     st.markdown("<h1 style='text-align:center; color:#4CAF50;'>🍽️ Dashboard Data Makanan </h1>", unsafe_allow_html=True)
 
-    # Gambar dari Google Drive
-    image_url = "https://drive.google.com/uc?export=view&id=1M52cM5GXWl6SbIDsAN9F7niqvcICLxOL"
-    st.image(image_url, caption="Makanan", use_container_width=True)
+    # Ambil gambar dari Google Drive
+    image_url = "https://drive.google.com/uc?export=download&id=1M52cM5GXWl6SbIDsAN9F7niqvcICLxOL"
+    response = requests.get(image_url)
+    image = Image.open(io.BytesIO(response.content))
 
+    st.image(image, caption="Makanan", use_container_width=True)
     st.write("<p style='text-align:center;'>Selamat datang! Website ini menampilkan data makanan berdasarkan kandungan nutrisinya dan gambarnya.</p>", unsafe_allow_html=True)
 
 elif selected == "Tabel Data":
