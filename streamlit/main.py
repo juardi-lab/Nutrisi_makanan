@@ -129,13 +129,19 @@ elif selected == "Visualisasi":
 
     st.subheader("🔸 DBSCAN Clustering")
     st.markdown("**K-Distance Plot (Menentukan Epsilon)**")
-    st.image("k-distance.jpg", use_container_width=True)
+    kdistance_url = "https://drive.google.com/uc?export=download&id=1AEa0LO-cizuLtu82fTtEdZJoqBXe6oJ6"
+    response = requests.get(kdistance_url)
+    kdistance_img = Image.open(io.BytesIO(response.content))
+    st.image(kdistance_img, use_container_width=True)
     st.markdown("""
     Grafik ini digunakan untuk menentukan nilai **epsilon (ε)** optimal pada DBSCAN.
     """)
 
     st.markdown("**Hasil Clustering DBSCAN**")
-    st.image("dbscan.jpg", use_container_width=True)
+    dbscan_url = "https://drive.google.com/uc?export=download&id=1iKtXvH_znbJeMX7E9O8KwdkjxVR6VfRk"
+    response = requests.get(dbscan_url)
+    dbscan_img = Image.open(io.BytesIO(response.content))
+    st.image(dbscan_img, use_container_width=True)
     st.markdown("""
     Visualisasi ini menunjukkan hasil akhir dari metode DBSCAN.
     """)
