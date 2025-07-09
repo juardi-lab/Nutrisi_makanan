@@ -118,7 +118,7 @@ elif selected == "Visualisasi":
 
     st.markdown("**Hasil Clustering K-Means**")
     
-    scatter_url = "https://drive.google.com/file/d/1EyET1hBKMOSQ5MGBXeo8pSsmQRRucXSf/view?usp=drive_link"
+    scatter_url = "https://drive.google.com/uc?export=download&id=1EyET1hBKMOSQ5MGBXeo8pSsmQRRucXSf"
     response = requests.get(scatter_url)
     scatter_img = Image.open(io.BytesIO(response.content))
     st.image(scatter_img, use_container_width=True)
