@@ -117,7 +117,12 @@ elif selected == "Visualisasi":
     """)
 
     st.markdown("**Hasil Clustering K-Means**")
-    st.image("Scatter plot k-means.jpg", use_container_width=True)
+    
+    scatter_url = "https://drive.google.com/file/d/1EyET1hBKMOSQ5MGBXeo8pSsmQRRucXSf/view?usp=drive_link"
+    response = requests.get(scatter_url)
+    scatter_img = Image.open(io.BytesIO(response.content))
+    st.image(elbow_img, use_container_width=True)
+    
     st.markdown("""
     Plot ini menunjukkan hasil akhir pengelompokan K-Means dengan 3 klaster berdasarkan variabel gizi makanan.
     """)
