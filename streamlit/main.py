@@ -99,7 +99,7 @@ elif selected == "Tabel Data":
             st.markdown("<hr style='border:0.5px solid #ccc;'>", unsafe_allow_html=True)
 
 elif selected == "Visualisasi":
-        st.markdown("<h2 style='color:#4CAF50;'>📈 Visualisasi Data</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color:#4CAF50;'>📈 Visualisasi Data</h2>", unsafe_allow_html=True)
 
     st.subheader("🔹 K-Means Clustering")
     st.markdown("**Metode Elbow**")
