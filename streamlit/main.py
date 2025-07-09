@@ -3,6 +3,8 @@ from streamlit_option_menu import option_menu
 import pandas as pd
 import matplotlib.pyplot as plt
 from PIL import Image
+import requests
+import io
 
 # ========== KONFIGURASI HALAMAN ==========
 st.set_page_config(
@@ -19,8 +21,12 @@ selected = option_menu(
     orientation="horizontal"
 )
 
-# ========== BACA DATA ==========
-df = pd.read_csv("C:/Users/Lenovo/Documents/Muhammad Ilham Juardi/SKRIPSI/streamlit/clustering_Kmeans_Baru.csv")
+# ========== BACA DATA DARI GOOGLE DRIVE ==========
+file_id = "1pR1b8GTF4tshPdKfZyaPyflGg_bRmZSt"
+download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
+
+response = requests.get(download_url)
+df = pd.read_csv(io.StringIO(response.text))
 
 # ========== LOGIKA TIAP HALAMAN ==========
 if selected == "Beranda":
