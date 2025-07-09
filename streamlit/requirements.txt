@@ -1,0 +1,14 @@
+streamlit 
+streamlit_option_menu
+plotly
+pytz
+streamlit-option-menu
+streamlit
+streamlit-option-menu
+pandas
+matplotlib
+seaborn
+scikit-learn
+pillow
+openpyxl
+image
