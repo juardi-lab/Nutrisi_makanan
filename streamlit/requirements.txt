@@ -1,14 +1,10 @@
-streamlit 
-streamlit_option_menu
-plotly
-pytz
-streamlit-option-menu
 streamlit
 streamlit-option-menu
 pandas
 matplotlib
 seaborn
+plotly
 scikit-learn
 pillow
 openpyxl
-image
+requests
