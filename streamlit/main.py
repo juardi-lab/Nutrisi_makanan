@@ -20,7 +20,7 @@ selected = option_menu(
 )
 
 # ========== BACA DATA ==========
-df = pd.read_csv("C:\Users\Lenovo\Documents\Muhammad Ilham Juardi\SKRIPSI\streamlit\data\Clustering_Kmeans_Baru.csv")
+df = pd.read_csv(r"C:\Users\Lenovo\Documents\Muhammad Ilham Juardi\SKRIPSI\streamlit\data\Clustering_Kmeans_Baru.csv")
 
 # ========== LOGIKA TIAP HALAMAN ==========
 if selected == "Beranda":
