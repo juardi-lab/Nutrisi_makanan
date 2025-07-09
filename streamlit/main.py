@@ -99,11 +99,16 @@ elif selected == "Tabel Data":
             st.markdown("<hr style='border:0.5px solid #ccc;'>", unsafe_allow_html=True)
 
 elif selected == "Visualisasi":
-    st.markdown("<h2 style='color:#4CAF50;'>📈 Visualisasi Data</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 style='color:#4CAF50;'>📈 Visualisasi Data</h2>", unsafe_allow_html=True)
 
     st.subheader("🔹 K-Means Clustering")
     st.markdown("**Metode Elbow**")
-    st.image("elbow.jpg", use_container_width=True)
+
+    elbow_url = "https://drive.google.com/uc?export=download&id=11jpb8FlbT9Gw_3IlMBDScaPeo9mHA_vK"
+    response = requests.get(elbow_url)
+    elbow_img = Image.open(io.BytesIO(response.content))
+    st.image(elbow_img, use_container_width=True)
+
     st.markdown("""
     Grafik di atas merupakan hasil dari **Metode Elbow** pada algoritma K-Means untuk menentukan jumlah klaster optimal.
     - **Sumbu X (Jumlah Cluster):** menunjukkan jumlah klaster yang diuji, dari 1 hingga 10.
