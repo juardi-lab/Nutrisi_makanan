@@ -232,9 +232,9 @@ elif selected == "Kesimpulan":
 
     st.markdown("""
     ### 🟡 Cluster 2 – Tinggi Karbohidrat & Kalori
-    Jumlah Data: 296 item
-    Rata-rata Gizi: 346,9 kkal | 7,3 g protein | 6,2 g lemak | 67,4 g karbohidrat
-    ✔️ Cocok untuk anak-anak, remaja aktif, pekerja fisik, dan atlet.
+        Jumlah Data: 296 item
+        Rata-rata Gizi: 346,9 kkal | 7,3 g protein | 6,2 g lemak | 67,4 g karbohidrat
+        ✔️ Cocok untuk anak-anak, remaja aktif, pekerja fisik, dan atlet.
     """)
 
     st.info("""
