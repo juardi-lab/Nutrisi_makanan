@@ -216,28 +216,29 @@ elif selected == "Kesimpulan":
     st.markdown("<h2 style='color:#4CAF50;'>📌 Kesimpulan</h2>", unsafe_allow_html=True)
 
     st.markdown("""
-    ### 🟢 Cluster 0 – Rendah Kalori dan Gizi Berat  
-    - Jumlah Data: 769 item  
-    - Kalori: 93,02 kkal | Protein: 6,07 g | Lemak: 2,36 g | Karbohidrat: 12,19 g  
-    Cocok untuk diet rendah kalori, penderita diabetes, atau pasien dengan gangguan ginjal.
+    ### 🔴 Cluster 0 – Tinggi Protein & Lemak
+        Jumlah Data: 196 item
+        Rata-rata Nutrisi: 334,3 kkal | 23,8 g protein | 20,9 g lemak | 13,5 g karbohidrat
+        ✔️ Cocok untuk atlet, individu dalam masa pemulihan, dan penderita malnutrisi.
     """)
 
     st.markdown("""
-    ### 🟡 Cluster 1 – Tinggi Karbohidrat dan Kalori  
-    - Jumlah Data: 273 item  
-    - Kalori: 343,35 kkal | Protein: 7,27 g | Lemak: 5,94 g | Karbohidrat: 67,15 g  
-    Perlu dibatasi untuk individu dengan kebutuhan pengendalian karbohidrat.
+    🟢 Cluster 1 – Rendah Kalori & Nutrisi Berat
+        Jumlah Data: 794 item
+        Rata-rata Nutrisi: 91,9 kkal | 5,8 g protein | 2,3 g lemak | 12,4 g karbohidrat
+        ✔️ Cocok untuk diet rendah kalori, penderita diabetes tipe 2, hipertensi, dan penyakit ginjal kronis.
+        💡 Mendukung pola makan sehat berbasis nabati dan pengendalian berat badan..
     """)
 
     st.markdown("""
-    ### 🔴 Cluster 2 – Tinggi Protein dan Lemak  
-    - Jumlah Data: 179 item  
-    - Kalori: 347,80 kkal | Protein: 23,12 g | Lemak: 22,33 g | Karbohidrat: 14,55 g  
-    Cocok untuk kebutuhan protein tinggi, namun perlu perhatian bagi penderita kolesterol tinggi atau gangguan ginjal.
+    ### 🟡 Cluster 2 – Tinggi Karbohidrat & Kalori
+    Jumlah Data: 296 item
+    Rata-rata Gizi: 346,9 kkal | 7,3 g protein | 6,2 g lemak | 67,4 g karbohidrat
+    ✔️ Cocok untuk anak-anak, remaja aktif, pekerja fisik, dan atlet.
     """)
 
     st.info("""
-    Aplikasi ini menyajikan hasil pengelompokan makanan berdasarkan kandungan gizi.
+    Aplikasi ini menyajikan hasil pengelompokan makanan berdasarkan kandungan nutrisi.
     """)
 
 # ========== FOOTER ==========
