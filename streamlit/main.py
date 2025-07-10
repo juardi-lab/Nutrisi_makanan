@@ -223,7 +223,7 @@ elif selected == "Kesimpulan":
     """)
 
     st.markdown("""
-    🟢 Cluster 1 – Rendah Kalori & Nutrisi Berat
+    ### 🟢 Cluster 1 – Rendah Kalori & Nutrisi Berat
         Jumlah Data: 794 item
         Rata-rata Nutrisi: 91,9 kkal | 5,8 g protein | 2,3 g lemak | 12,4 g karbohidrat
         ✔️ Cocok untuk diet rendah kalori, penderita diabetes tipe 2, hipertensi, dan penyakit ginjal kronis.
