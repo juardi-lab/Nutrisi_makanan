@@ -217,26 +217,26 @@ elif selected == "Kesimpulan":
 
     st.markdown("""
     ### 🟢 Cluster 0 – Tinggi Protein & Lemak
-        •	Jumlah Data: 196 item
-        •	Rata-rata Nutrisi: 334,3 kkal | 23,8 g protein | 20,9 g lemak | 13,5 g karbohidrat
-        •	Kelompok ini terdiri dari makanan tinggi protein dan lemak, Karbohidrat tergolong rendah
+        • Jumlah Data: 196 item
+        • Rata-rata Nutrisi: 334,3 kkal | 23,8 g protein | 20,9 g lemak | 13,5 g karbohidrat
+        • Kelompok ini terdiri dari makanan tinggi protein dan lemak, Karbohidrat tergolong rendah
         ✔️ Cocok untuk atlet, individu dalam masa pemulihan, dan penderita malnutrisi.
     """)
 
     st.markdown("""
     ### 🟡 Cluster 1 – Rendah Kalori & Nutrisi Berat
-        •	Jumlah Data: 794 item
-        •	Rata-rata Nutrisi: 91,9 kkal | 5,8 g protein | 2,3 g lemak | 12,4 g karbohidrat
-        •	Kelompok ini berasal dari makanan dengan kalori, protein, dan lemak rendah, Karbohidrat juga cenderung rendah
+        • Jumlah Data: 794 item
+        • Rata-rata Nutrisi: 91,9 kkal | 5,8 g protein | 2,3 g lemak | 12,4 g karbohidrat
+        • Kelompok ini berasal dari makanan dengan kalori, protein, dan lemak rendah, Karbohidrat juga cenderung rendah
         ✔️ Cocok untuk diet rendah kalori, penderita diabetes tipe 2, hipertensi, dan penyakit ginjal kronis.
         💡 Mendukung pola makan sehat berbasis nabati dan pengendalian berat badan..
     """)
 
     st.markdown("""
     ### 🔴 Cluster 2 – Tinggi Karbohidrat & Kalori
-        •	Jumlah Data: 296 item
-        •	Rata-rata Gizi: 346,9 kkal | 7,3 g protein | 6,2 g lemak | 67,4 g karbohidrat
-        •	Kelompok ini berasa dari makanan dengan kandungan karbohidrat tinggi, Kalori juga tinggi, namun protein dan lemak sedang
+        • Jumlah Data: 296 item
+        • Rata-rata Gizi: 346,9 kkal | 7,3 g protein | 6,2 g lemak | 67,4 g karbohidrat
+        • Kelompok ini berasa dari makanan dengan kandungan karbohidrat tinggi, Kalori juga tinggi, namun protein dan lemak sedang
         ✔️ Cocok untuk anak-anak, remaja aktif, pekerja fisik, dan atlet.
     """)
 
