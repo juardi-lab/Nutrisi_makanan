@@ -223,7 +223,8 @@ Cocok untuk atlet, individu dalam masa pemulihan, dan penderita malnutrisi.
     """)
 
     st.markdown("""
-    ### 🟡 Cluster 1 – Rendah Kalori & Nutrisi Berat
+    ### 🟡 Cluster 1 – Rendah Kalori & Nutrisi Berat """)
+    st.markdown("""    
         • Jumlah Data: 794 item
         • Rata-rata Nutrisi: 91,9 kkal | 5,8 g protein | 2,3 g lemak | 12,4 g karbohidrat
           Kelompok ini berasal dari makanan dengan kalori, protein, dan lemak rendah, Karbohidrat juga cenderung rendah
