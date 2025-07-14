@@ -217,9 +217,9 @@ elif selected == "Kesimpulan":
 
     st.markdown("""
     ### 🟢 Cluster 0 – Tinggi Protein & Lemak
-    <li>• Jumlah Data: 196 item</li>
-    <li>• Rata-rata Nutrisi: 334,3 kkal | 23,8 g protein | 20,9 g lemak | 13,5 g karbohidrat</li>
-    <li>Kelompok ini terdiri dari makanan tinggi protein dan lemak, Karbohidrat tergolong rendah</li>
+    **• Jumlah Data: 196 item</li>
+    **• Rata-rata Nutrisi: 334,3 kkal | 23,8 g protein | 20,9 g lemak | 13,5 g karbohidrat</li>
+    **Kelompok ini terdiri dari makanan tinggi protein dan lemak, Karbohidrat tergolong rendah</li>
     Cocok untuk atlet, individu dalam masa pemulihan, dan penderita malnutrisi.
     """)
 
