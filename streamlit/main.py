@@ -29,7 +29,7 @@ selected = option_menu(
     options=valid_pages,
     icons=["house", "table", "check-circle"],
     menu_icon="cast",
-    default_index=default_index,
+    default_index = valid_pages.index(selected),
     orientation="horizontal"
 )
 # ========== AMBIL DATA ==========
