@@ -14,7 +14,7 @@ st.set_page_config(
 )
 
 # ========== AMBIL PARAMETER ==========
-params = st.experimental_get_query_params()
+st.query_params
 selected = params.get("page", ["Beranda"])[0]
 
 # ========== NAVIGASI ==========
