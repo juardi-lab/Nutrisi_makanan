@@ -98,15 +98,18 @@ elif st.session_state.page == "Tabel Data":
                         </div>
                     """, unsafe_allow_html=True)
 
-                with col_cluster:
+               with col_cluster:
                     cluster_value = int(row["Cluster"])
                     cluster_name = cluster_labels.get(cluster_value, "Tidak Diketahui")
-
-                    if st.button(f"Lihat Cluster {cluster_value}", key=f"btn_{idx}"):
+                
+                    clicked = st.button(f"{cluster_value}-{idx}", key=f"cluster_{idx}", help="Klik untuk lihat kesimpulan cluster", label_visibility="collapsed")
+                
+                    if clicked:
                         go_to("Kesimpulan")
-
+                
+                    # Ini tetap tampil seperti biasa
                     st.markdown(f"""
-                        <div style='text-align: center;'>
+                        <div style='text-align: center; cursor: pointer;'>
                             <div style='font-size: 22px; font-weight: bold; color: black;'>{cluster_value}</div>
                             <div style='font-size: 12px; color: #555;'>{cluster_name}</div>
                         </div>
