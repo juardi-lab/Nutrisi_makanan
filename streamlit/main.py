@@ -80,7 +80,7 @@ elif st.session_state.page == "Tabel Data":
         end_idx = start_idx + rows_per_page
         paginated_df = filtered_df.iloc[start_idx:end_idx]
 
-        for idx, row in paginated_df.iterrows():
+                for idx, row in paginated_df.iterrows():
             with st.container():
                 col_gambar, col_nutrisi, col_cluster = st.columns([1, 2, 1])
 
@@ -98,24 +98,23 @@ elif st.session_state.page == "Tabel Data":
                         </div>
                     """, unsafe_allow_html=True)
 
-               with col_cluster:
-                        cluster_value = int(row["Cluster"])
-                        cluster_name = cluster_labels.get(cluster_value, "Tidak Diketahui")
-                    
-                        clicked = st.button(f"{cluster_value}-{idx}", key=f"cluster_{idx}", help="Klik untuk lihat kesimpulan cluster", label_visibility="collapsed")
-                    
-                        if clicked:
-                            go_to("Kesimpulan")
-                    
-                        # Ini tetap tampil seperti biasa
-                        st.markdown(f"""
-                            <div style='text-align: center; cursor: pointer;'>
-                                <div style='font-size: 22px; font-weight: bold; color: black;'>{cluster_value}</div>
-                                <div style='font-size: 12px; color: #555;'>{cluster_name}</div>
-                            </div>
-                        """, unsafe_allow_html=True)
-    
-                st.markdown("<hr style='border:0.5px solid #ccc;'>", unsafe_allow_html=True)
+                with col_cluster:
+                    cluster_value = int(row["Cluster"])
+                    cluster_name = cluster_labels.get(cluster_value, "Tidak Diketahui")
+
+                    clicked = st.button(f"{cluster_value}-{idx}", key=f"cluster_{idx}", help="Klik untuk lihat kesimpulan cluster", label_visibility="collapsed")
+
+                    if clicked:
+                        go_to("Kesimpulan")
+
+                    st.markdown(f"""
+                        <div style='text-align: center; cursor: pointer;'>
+                            <div style='font-size: 22px; font-weight: bold; color: black;'>{cluster_value}</div>
+                            <div style='font-size: 12px; color: #555;'>{cluster_name}</div>
+                        </div>
+                    """, unsafe_allow_html=True)
+
+            st.markdown("<hr style='border:0.5px solid #ccc;'>", unsafe_allow_html=True)
 
 # ========== HALAMAN KESIMPULAN ==========
 elif st.session_state.page == "Kesimpulan":
