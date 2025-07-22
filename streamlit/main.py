@@ -21,7 +21,7 @@ valid_pages = ["Beranda", "Tabel Data", "Kesimpulan"]
 
 # Kalau selected tidak valid, pakai default
 if selected not in valid_pages:
-    selected = "Beranda"
+    selected = "Kesimpulan"
 
 # ========== NAVIGASI ==========
 selected = option_menu(
