@@ -110,6 +110,14 @@ elif selected == "Tabel Data":
 elif selected == "Kesimpulan":
     st.markdown("<h2 style='color:#4CAF50;'>📌 Kesimpulan</h2>", unsafe_allow_html=True)
 
+    selected_cluster = st.session_state.get("selected_cluster", None)
+
+    if selected_cluster is not None:
+        st.success(f"Menampilkan data untuk Cluster {selected_cluster}: {cluster_labels[selected_cluster]}")
+    ## (Tetap lanjut tampilkan semua info kesimpulan seperti sebelumnya...)
+
+    st.markdown("<h2 style='color:#4CAF50;'>📌 Kesimpulan</h2>", unsafe_allow_html=True)
+
     st.markdown("""### 🟢 Cluster 0 – Tinggi Protein & Lemak
 • Jumlah Data: 196 item  
 • Rata-rata Nutrisi: 334,3 kkal | 23,8 g protein | 20,9 g lemak | 13,5 g karbohidrat  
