@@ -14,18 +14,24 @@ st.set_page_config(
 )
 
 # ========== AMBIL PARAMETER ==========
-params = st.query_params
-selected = params.get("page", ["Beranda"])[0]
+selected = st.query_params.get("page", ["Beranda"])[0]
+
+# Daftar halaman yang valid
+valid_pages = ["Beranda", "Tabel Data", "Kesimpulan"]
+
+# Kalau selected tidak valid, pakai default
+if selected not in valid_pages:
+    selected = "Beranda"
 
 # ========== NAVIGASI ==========
 selected = option_menu(
     menu_title=None,
-    options=["Beranda", "Tabel Data", "Kesimpulan"],
-    icons=["house", "table", "bar-chart-line"],
-    orientation="horizontal",
-    default_index=["Beranda", "Tabel Data", "Kesimpulan"].index(selected)
+    options=valid_pages,
+    icons=["house", "table", "check-circle"],
+    menu_icon="cast",
+    default_index=default_index,
+    orientation="horizontal"
 )
-
 # ========== AMBIL DATA ==========
 file_id = "1pR1b8GTF4tshPdKfZyaPyflGg_bRmZSt"
 download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
