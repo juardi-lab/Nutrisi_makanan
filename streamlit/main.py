@@ -16,7 +16,7 @@ st.set_page_config(
 # ========== NAVIGASI HORIZONTAL ==========
 selected = option_menu(
     menu_title=None,
-    options=["Beranda", "Tabel Data", "Visualisasi", "Tentang Metode", "Kesimpulan"],
+    options=["Beranda", "Tabel Data", "Kesimpulan"],
     icons=["house", "table", "bar-chart-line", "info-circle", "check-circle"],
     orientation="horizontal"
 )
@@ -97,121 +97,7 @@ elif selected == "Tabel Data":
                         unsafe_allow_html=True
                     )
             st.markdown("<hr style='border:0.5px solid #ccc;'>", unsafe_allow_html=True)
-
-elif selected == "Visualisasi":
-    st.markdown("<h2 style='color:#4CAF50;'>📈 Visualisasi Data</h2>", unsafe_allow_html=True)
-
-    st.subheader("🔹 K-Means Clustering")
-    st.markdown("**Metode Elbow**")
-
-    elbow_url = "https://drive.google.com/uc?export=download&id=11jpb8FlbT9Gw_3IlMBDScaPeo9mHA_vK"
-    response = requests.get(elbow_url)
-    elbow_img = Image.open(io.BytesIO(response.content))
-    st.image(elbow_img, use_container_width=True)
-
-    st.markdown("""
-    Grafik di atas merupakan hasil dari **Metode Elbow** pada algoritma K-Means untuk menentukan jumlah klaster optimal.
-    - **Sumbu X (Jumlah Cluster):** menunjukkan jumlah klaster yang diuji, dari 1 hingga 10.
-    - **Sumbu Y (WCSS):** total jarak kuadrat antar data dan pusat klaster.
-    Titik 'tekukan' menunjukkan jumlah klaster optimal, yaitu **3 cluster**.
-    """)
-
-    st.markdown("**Hasil Clustering K-Means**")
-    
-    scatter_url = "https://drive.google.com/uc?export=download&id=1EyET1hBKMOSQ5MGBXeo8pSsmQRRucXSf"
-    response = requests.get(scatter_url)
-    scatter_img = Image.open(io.BytesIO(response.content))
-    st.image(scatter_img, use_container_width=True)
-    
-    st.markdown("""
-    Plot ini menunjukkan hasil akhir pengelompokan K-Means dengan 3 klaster berdasarkan variabel gizi makanan.
-    """)
-
-    st.subheader("🔸 DBSCAN Clustering")
-    st.markdown("**K-Distance Plot (Menentukan Epsilon)**")
-    kdistance_url = "https://drive.google.com/uc?export=download&id=1AEa0LO-cizuLtu82fTtEdZJoqBXe6oJ6"
-    response = requests.get(kdistance_url)
-    kdistance_img = Image.open(io.BytesIO(response.content))
-    st.image(kdistance_img, use_container_width=True)
-    st.markdown("""
-    Grafik ini digunakan untuk menentukan nilai **epsilon (ε)** optimal pada DBSCAN.
-    """)
-
-    st.markdown("**Hasil Clustering DBSCAN**")
-    dbscan_url = "https://drive.google.com/uc?export=download&id=1iKtXvH_znbJeMX7E9O8KwdkjxVR6VfRk"
-    response = requests.get(dbscan_url)
-    dbscan_img = Image.open(io.BytesIO(response.content))
-    st.image(dbscan_img, use_container_width=True)
-    st.markdown("""
-    Visualisasi ini menunjukkan hasil akhir dari metode DBSCAN.
-    """)
-
-elif selected == "Tentang Metode":
-    st.markdown("<h2 style='color:#4CAF50;'>🔍 Metode Klastering yang Digunakan</h2>", unsafe_allow_html=True)
-    st.markdown("<div style='background-color:#e6fff0;padding:10px;border-left:5px solid #4CAF50;'>"
-                "Analisis klaster dilakukan menggunakan dua metode utama: <strong>K-Means Clustering</strong> dan <strong>DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</strong>."
-                "</div><br>", unsafe_allow_html=True)
-
-    # ===================== K-MEANS =====================
-    with st.container():
-        st.markdown("### 📌 K-Means Clustering")
-        st.markdown("""
-        Metode K-Means digunakan untuk mengelompokkan data ke dalam beberapa klaster berdasarkan kedekatan data terhadap pusat klaster (centroid). 
-        Metode ini cocok untuk data yang memiliki bentuk distribusi yang jelas dan terstruktur.
-        """)
-
-    with st.container():
-        st.markdown("### 🧪 Langkah-langkah Analisis K-Means")
-        st.markdown("""
-        1. **Preprocessing data**  
-        2. **Menentukan jumlah klaster optimal** (menggunakan Elbow Method)  
-        3. **Menerapkan algoritma K-Means**  
-        4. **Visualisasi dan interpretasi hasil**
-        """)
-
-    with st.container():
-        st.markdown("### 📊 Evaluasi Model K-Means")
-        st.markdown("""
-        Model dievaluasi menggunakan **Silhouette Score**, dan **Davies-Bouldin Index**.
-        """)
-
-    # ===================== DBSCAN =====================
-    with st.container():
-        st.markdown("### 📌 DBSCAN Clustering")
-        st.markdown("""
-        DBSCAN (Density-Based Spatial Clustering of Applications with Noise) adalah algoritma klastering yang berbasis kepadatan data.
-        DBSCAN efektif untuk mendeteksi klaster dengan bentuk yang tidak beraturan dan mengidentifikasi outlier atau data yang tidak termasuk dalam klaster mana pun.
-        """)
-
-    with st.container():
-        st.markdown("### 🧪 Langkah-langkah Analisis DBSCAN")
-        st.markdown("""
-        1. **Preprocessing data**  
-        2. **Menentukan parameter epsilon (ε) dan minimum sampel (minPts)**  
-        3. **Menerapkan algoritma DBSCAN**  
-        4. **Identifikasi klaster dan outlier**
-        """)
-
-    with st.container():
-        st.markdown("### 📊 Evaluasi Model DBSCAN")
-        st.markdown("""
-        DBSCAN dievaluasi menggunakan metrik yang sama seperti K-Means, yaitu:  
-        - **Silhouette Score**    
-        - **Davies-Bouldin Index**  
-        Selain itu, DBSCAN juga dianalisis dari seberapa baik ia mengidentifikasi noise (outlier) di dataset.
-        """)
-
-    st.markdown("<div style='background-color:#fff3cd;padding:15px;border-left:5px solid #ffc107;border-radius:8px;'>"
-                "<h5>⚠️ Catatan Penting:</h5>"
-                "<ul>"
-                "<li>📌 K-Means cocok untuk data yang berbentuk bulat dan terdistribusi merata.</li>"
-                "<li>🌐 DBSCAN cocok untuk data yang memiliki bentuk klaster tidak beraturan dan mengandung outlier.</li>"
-                "<li>🔍 Visualisasi seperti PCA membantu melihat bentuk klaster.</li>"
-                "<li>✅ Evaluasi model penting untuk menilai kualitas pengelompokan.</li>"
-                "</ul>"
-                "</div>", unsafe_allow_html=True)
-
-
+            
 elif selected == "Kesimpulan":
     st.markdown("<h2 style='color:#4CAF50;'>📌 Kesimpulan</h2>", unsafe_allow_html=True)
     st.markdown("""
