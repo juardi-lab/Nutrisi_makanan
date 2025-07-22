@@ -138,3 +138,5 @@ st.markdown("""
         © 2025 Muhammad Ilham Juardi - Dashboard Data Makanan
     </div>
 """, unsafe_allow_html=True)
+
+ini codingan lengkapnya terapkan disini 
