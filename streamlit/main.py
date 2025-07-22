@@ -120,7 +120,7 @@ elif selected == "Tabel Data":
 elif selected == "Kesimpulan":
     st.markdown("<h2 style='color:#4CAF50;'>📌 Kesimpulan</h2>", unsafe_allow_html=True)
     selected_cluster = st.session_state.get("selected_cluster", None)
-    if selected_cluster is not None:
+if selected_cluster is not None:
     st.success(f"Menampilkan data untuk Cluster {selected_cluster}: {cluster_labels[selected_cluster]}")
 
     ## (Tetap lanjut tampilkan semua info kesimpulan seperti sebelumnya...)
