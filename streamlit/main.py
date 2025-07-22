@@ -14,11 +14,15 @@ st.set_page_config(
 )
 
 # ========== NAVIGASI HORIZONTAL ==========
+params = st.query_params
+selected = params.get("page", "Beranda")
+
 selected = option_menu(
     menu_title=None,
     options=["Beranda", "Tabel Data", "Kesimpulan"],
     icons=["house", "table", "bar-chart-line", "info-circle", "check-circle"],
-    orientation="horizontal"
+    orientation="horizontal",
+    default_index=["Beranda", "Tabel Data", "Kesimpulan"].index(selected)
 )
 
 # ========== BACA DATA DARI GOOGLE DRIVE ==========
@@ -106,12 +110,15 @@ elif selected == "Tabel Data":
                     cluster_value = int(row["Cluster"])
                     cluster_name = cluster_label.get(cluster_value, "Tidak Diketahui")
                 
+                    # Buat cluster bisa diklik
                     st.markdown(
                         f"""
-                        <div style='text-align: center;'>
-                            <div style='font-size: 22px; font-weight: bold; color: black;'>{cluster_value}</div>
-                            <div style='font-size: 12px; color: #555;'>{cluster_name}</div>
-                        </div>
+                        <a href='?page=Kesimpulan' style='text-decoration: none;'>
+                            <div style='text-align: center; cursor: pointer;'>
+                                <div style='font-size: 22px; font-weight: bold; color: black;'>{cluster_value}</div>
+                                <div style='font-size: 12px; color: #555;'>{cluster_name}</div>
+                            </div>
+                        </a>
                         """,
                         unsafe_allow_html=True
                     )
