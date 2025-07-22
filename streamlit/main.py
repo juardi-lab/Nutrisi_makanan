@@ -17,6 +17,18 @@ st.set_page_config(
 params = st.query_params
 selected = params.get("page", ["Beranda"])[0]
 
+# ========== CEK SESSION STATE ==========
+
+if "page" not in st.session_state:
+    st.session_state["page"] = selected
+if "selected_cluster" not in st.session_state:
+    st.session_state["selected_cluster"] = None
+
+# Jika ada redirect dari tombol cluster
+if st.session_state["page"] != selected:
+    selected = st.session_state["page"]
+
+
 
 # ========== NAVIGASI ==========
 selected = option_menu(
@@ -94,26 +106,23 @@ elif selected == "Tabel Data":
                     """, unsafe_allow_html=True)
 
                 with col_cluster:
-                        cluster_value = int(row["Cluster"])
-                        cluster_name = cluster_labels.get(cluster_value, "Tidak Diketahui")
-                        if st.button(f"{cluster_value} - {row['name']}", key=f"cluster_{idx}"):
-                            st.session_state["page"] = "Kesimpulan"
-                            st.session_state["selected_cluster"] = cluster_value
-                            st.experimental_rerun()
-                        else:
-                            st.markdown(f"<div style='font-size: 12px; color: #555;'>{cluster_name}</div>", unsafe_allow_html=True)
-
-
-            st.markdown("<hr style='border:0.5px solid #ccc;'>", unsafe_allow_html=True)
+                    cluster_value = int(row["Cluster"])
+                    cluster_name = cluster_labels.get(cluster_value, "Tidak Diketahui")
+                
+                    if st.button(f"{cluster_value}", key=f"btn_cluster_{idx}"):
+                        st.session_state["selected_cluster"] = cluster_value
+                        st.session_state["page"] = "Kesimpulan"
+                        st.experimental_rerun()
+                    
+                    st.markdown(f"<div style='text-align:center; font-size:12px; color:#555;'>{cluster_name}</div>", unsafe_allow_html=True)
 
 # ========== HALAMAN KESIMPULAN ==========
 elif selected == "Kesimpulan":
     st.markdown("<h2 style='color:#4CAF50;'>📌 Kesimpulan</h2>", unsafe_allow_html=True)
-
     selected_cluster = st.session_state.get("selected_cluster", None)
-
     if selected_cluster is not None:
-        st.success(f"Menampilkan data untuk Cluster {selected_cluster}: {cluster_labels[selected_cluster]}")
+    st.success(f"Menampilkan data untuk Cluster {selected_cluster}: {cluster_labels[selected_cluster]}")
+
     ## (Tetap lanjut tampilkan semua info kesimpulan seperti sebelumnya...)
 
     st.markdown("<h2 style='color:#4CAF50;'>📌 Kesimpulan</h2>", unsafe_allow_html=True)
