@@ -99,23 +99,23 @@ elif st.session_state.page == "Tabel Data":
                     """, unsafe_allow_html=True)
 
                with col_cluster:
-                    cluster_value = int(row["Cluster"])
-                    cluster_name = cluster_labels.get(cluster_value, "Tidak Diketahui")
-                
-                    clicked = st.button(f"{cluster_value}-{idx}", key=f"cluster_{idx}", help="Klik untuk lihat kesimpulan cluster", label_visibility="collapsed")
-                
-                    if clicked:
-                        go_to("Kesimpulan")
-                
-                    # Ini tetap tampil seperti biasa
-                    st.markdown(f"""
-                        <div style='text-align: center; cursor: pointer;'>
-                            <div style='font-size: 22px; font-weight: bold; color: black;'>{cluster_value}</div>
-                            <div style='font-size: 12px; color: #555;'>{cluster_name}</div>
-                        </div>
-                    """, unsafe_allow_html=True)
-
-            st.markdown("<hr style='border:0.5px solid #ccc;'>", unsafe_allow_html=True)
+                        cluster_value = int(row["Cluster"])
+                        cluster_name = cluster_labels.get(cluster_value, "Tidak Diketahui")
+                    
+                        clicked = st.button(f"{cluster_value}-{idx}", key=f"cluster_{idx}", help="Klik untuk lihat kesimpulan cluster", label_visibility="collapsed")
+                    
+                        if clicked:
+                            go_to("Kesimpulan")
+                    
+                        # Ini tetap tampil seperti biasa
+                        st.markdown(f"""
+                            <div style='text-align: center; cursor: pointer;'>
+                                <div style='font-size: 22px; font-weight: bold; color: black;'>{cluster_value}</div>
+                                <div style='font-size: 12px; color: #555;'>{cluster_name}</div>
+                            </div>
+                        """, unsafe_allow_html=True)
+    
+                st.markdown("<hr style='border:0.5px solid #ccc;'>", unsafe_allow_html=True)
 
 # ========== HALAMAN KESIMPULAN ==========
 elif st.session_state.page == "Kesimpulan":
