@@ -95,26 +95,26 @@ elif selected == "Tabel Data":
                     )
 
                 with col_cluster:
-    st.markdown("<h5 style='text-align:center; color:black;'>Cluster</h5>", unsafe_allow_html=True)
-
-    cluster_label = {
-        0: "Tinggi Protein & Lemak",
-        1: "Rendah Kalori & Nutrisi Berat",
-        2: "Tinggi Karbohidrat & Kalori"
-    }
-
-    cluster_value = int(row["Cluster"])
-    cluster_name = cluster_label.get(cluster_value, "Tidak Diketahui")
-
-    st.markdown(
-        f"""
-        <div style='text-align: center;'>
-            <div style='font-size: 22px; font-weight: bold; color: black;'>{cluster_value}</div>
-            <div style='font-size: 12px; color: #555;'>{cluster_name}</div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+                    st.markdown("<h5 style='text-align:center; color:black;'>Cluster</h5>", unsafe_allow_html=True)
+                
+                    cluster_label = {
+                        0: "Tinggi Protein & Lemak",
+                        1: "Rendah Kalori & Nutrisi Berat",
+                        2: "Tinggi Karbohidrat & Kalori"
+                    }
+                
+                    cluster_value = int(row["Cluster"])
+                    cluster_name = cluster_label.get(cluster_value, "Tidak Diketahui")
+                
+                    st.markdown(
+                        f"""
+                        <div style='text-align: center;'>
+                            <div style='font-size: 22px; font-weight: bold; color: black;'>{cluster_value}</div>
+                            <div style='font-size: 12px; color: #555;'>{cluster_name}</div>
+                        </div>
+                        """,
+                        unsafe_allow_html=True
+                    )
 
             st.markdown("<hr style='border:0.5px solid #ccc;'>", unsafe_allow_html=True)
             
