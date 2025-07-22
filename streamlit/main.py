@@ -56,6 +56,14 @@ elif selected == "Tabel Data":
         sort_order = st.radio("Urutan", ["Naik", "Turun"], horizontal=True)
         filtered_df = filtered_df.sort_values(by=sort_col, ascending=(sort_order == "Naik"))
 
+        # 🔸 Tambahkan mapping keterangan cluster
+        cluster_labels = {
+            0: "Tinggi Protein & Lemak",
+            1: "Rendah Kalori & Nutrisi Berat",
+            2: "Tinggi Karbohidrat & Kalori"
+        }
+        filtered_df["keterangan_cluster"] = filtered_df["Cluster"].map(cluster_labels)
+
         rows_per_page = 100
         total_rows = len(filtered_df)
         total_pages = (total_rows - 1) // rows_per_page + 1
@@ -92,6 +100,9 @@ elif selected == "Tabel Data":
                         f"""
                         <div style='font-size: 20px; text-align: center; font-weight: bold; color: black;'>
                         {row['Cluster']}
+                        </div>
+                        <div style='font-size: 12px; text-align: center; color: grey;'>
+                        {row['keterangan_cluster']}
                         </div>
                         """,
                         unsafe_allow_html=True
