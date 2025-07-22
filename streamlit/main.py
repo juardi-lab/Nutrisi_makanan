@@ -80,7 +80,7 @@ elif st.session_state.page == "Tabel Data":
         end_idx = start_idx + rows_per_page
         paginated_df = filtered_df.iloc[start_idx:end_idx]
 
-                for idx, row in paginated_df.iterrows():
+        for idx, row in paginated_df.iterrows():
             with st.container():
                 col_gambar, col_nutrisi, col_cluster = st.columns([1, 2, 1])
 
