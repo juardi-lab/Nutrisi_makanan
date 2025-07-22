@@ -13,19 +13,13 @@ st.set_page_config(
     layout="centered"
 )
 
-# ========== AMBIL PARAMETER ==========
-params = st.query_params
-selected = params.get("page", ["Beranda"])[0]
+# ========== SESSION STATE UNTUK HALAMAN ==========
+if "page" not in st.session_state:
+    st.session_state.page = "Beranda"
 
-
-# ========== NAVIGASI ==========
-selected = option_menu(
-    menu_title=None,
-    options=["Beranda", "Tabel Data", "Kesimpulan"],
-    icons=["house", "table", "bar-chart-line"],
-    orientation="horizontal",
-    default_index=["Beranda", "Tabel Data", "Kesimpulan"].index(selected)
-)
+# ========== FUNGSI NAVIGASI ==========
+def go_to(page_name):
+    st.session_state.page = page_name
 
 # ========== AMBIL DATA ==========
 file_id = "1pR1b8GTF4tshPdKfZyaPyflGg_bRmZSt"
@@ -40,8 +34,19 @@ cluster_labels = {
     2: "Tinggi Karbohidrat & Kalori"
 }
 
+# ========== MENU NAVIGASI ==========
+selected_menu = option_menu(
+    menu_title=None,
+    options=["Beranda", "Tabel Data", "Kesimpulan"],
+    icons=["house", "table", "bar-chart-line"],
+    orientation="horizontal",
+    default_index=["Beranda", "Tabel Data", "Kesimpulan"].index(st.session_state.page),
+    key="main_menu"
+)
+st.session_state.page = selected_menu
+
 # ========== HALAMAN BERANDA ==========
-if selected == "Beranda":
+if st.session_state.page == "Beranda":
     st.markdown("<h1 style='text-align:center; color:#4CAF50;'>🍽️ Dashboard Data Makanan</h1>", unsafe_allow_html=True)
 
     img_url = "https://drive.google.com/uc?export=download&id=1M52cM5GXWl6SbIDsAN9F7niqvcICLxOL"
@@ -52,7 +57,7 @@ if selected == "Beranda":
     st.markdown("<p style='text-align:center;'>Selamat datang! Website ini menampilkan data makanan berdasarkan kandungan nutrisinya dan gambarnya.</p>", unsafe_allow_html=True)
 
 # ========== HALAMAN TABEL DATA ==========
-elif selected == "Tabel Data":
+elif st.session_state.page == "Tabel Data":
     st.markdown("<h2 style='color:#4CAF50;'>📊 Tabel Data Makanan</h2>", unsafe_allow_html=True)
 
     search = st.text_input("Cari nama makanan")
@@ -96,19 +101,21 @@ elif selected == "Tabel Data":
                 with col_cluster:
                     cluster_value = int(row["Cluster"])
                     cluster_name = cluster_labels.get(cluster_value, "Tidak Diketahui")
+
+                    if st.button(f"Lihat Cluster {cluster_value}", key=f"btn_{idx}"):
+                        go_to("Kesimpulan")
+
                     st.markdown(f"""
-                        <a href='?page=Kesimpulan' style='text-decoration: none;'>
-                            <div style='text-align: center; cursor: pointer;'>
-                                <div style='font-size: 22px; font-weight: bold; color: black;'>{cluster_value}</div>
-                                <div style='font-size: 12px; color: #555;'>{cluster_name}</div>
-                            </div>
-                        </a>
+                        <div style='text-align: center;'>
+                            <div style='font-size: 22px; font-weight: bold; color: black;'>{cluster_value}</div>
+                            <div style='font-size: 12px; color: #555;'>{cluster_name}</div>
+                        </div>
                     """, unsafe_allow_html=True)
 
             st.markdown("<hr style='border:0.5px solid #ccc;'>", unsafe_allow_html=True)
 
 # ========== HALAMAN KESIMPULAN ==========
-elif selected == "Kesimpulan":
+elif st.session_state.page == "Kesimpulan":
     st.markdown("<h2 style='color:#4CAF50;'>📌 Kesimpulan</h2>", unsafe_allow_html=True)
 
     st.markdown("""### 🟢 Cluster 0 – Tinggi Protein & Lemak
