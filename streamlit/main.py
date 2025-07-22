@@ -94,16 +94,15 @@ elif selected == "Tabel Data":
                     """, unsafe_allow_html=True)
 
                 with col_cluster:
-                    cluster_value = int(row["Cluster"])
-                    cluster_name = cluster_labels.get(cluster_value, "Tidak Diketahui")
-                    st.markdown(f"""
-                        <a href='?page=Kesimpulan' style='text-decoration: none;'>
-                            <div style='text-align: center; cursor: pointer;'>
-                                <div style='font-size: 22px; font-weight: bold; color: black;'>{cluster_value}</div>
-                                <div style='font-size: 12px; color: #555;'>{cluster_name}</div>
-                            </div>
-                        </a>
-                    """, unsafe_allow_html=True)
+                        cluster_value = int(row["Cluster"])
+                        cluster_name = cluster_labels.get(cluster_value, "Tidak Diketahui")
+                        if st.button(f"{cluster_value} - {row['name']}", key=f"cluster_{idx}"):
+                            st.session_state["page"] = "Kesimpulan"
+                            st.session_state["selected_cluster"] = cluster_value
+                            st.experimental_rerun()
+                        else:
+                            st.markdown(f"<div style='font-size: 12px; color: #555;'>{cluster_name}</div>", unsafe_allow_html=True)
+
 
             st.markdown("<hr style='border:0.5px solid #ccc;'>", unsafe_allow_html=True)
 
