@@ -139,4 +139,3 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-ini codingan lengkapnya terapkan disini 
