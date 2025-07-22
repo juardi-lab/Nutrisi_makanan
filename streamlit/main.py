@@ -14,8 +14,9 @@ st.set_page_config(
 )
 
 # ========== AMBIL PARAMETER ==========
-st.query_params
+params = st.query_params
 selected = params.get("page", ["Beranda"])[0]
+
 
 # ========== NAVIGASI ==========
 selected = option_menu(
